@@ -1,4 +1,28 @@
 from Tkinter import *
+
+def db_info(database):
+    client = MongoClient()
+    db = client[database]
+    col = db.collection_names()
+
+    doc_count = {}
+
+    for collection in col:
+        doc_count[collection] = db[collection].count()
+    print(doc_count)
+
+def startup(root, fields):
+   entries = []
+   for field in fields:
+      row = Frame(root)
+      lab = Label(row, width=28, text=field, anchor='w')
+      ent = Entry(row)
+      row.pack(side=TOP, fill=X, padx=5, pady=5)
+      lab.pack(side=LEFT)
+      ent.pack(side=RIGHT, expand=YES, fill=X)
+      entries.append((field, ent))
+   return entries
+
 fields = ['Name',
           'Original Filename',
           'String ID',
@@ -7,7 +31,9 @@ fields = ['Name',
           'Illicitor Name',
           'Illicitor Concentration (uM)',
           'Extraction Solvent',
-          'Column Type']
+          'Column Type',
+          'Experiment Date',
+          'Upload Date']
 
 
 def fetch(entries):

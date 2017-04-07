@@ -1,7 +1,10 @@
 # TODO: Allow for multiple IDs to be input for the search functions
 # TODO: Alter input so that date is a datetime object, not a string
-# TODO: Why do the chromatograms come out all wobbly
-# TODO: Can we teach the program to detect media peaks?
+# TODO: Create a chromatogram class that contains the various functions that would be performed on a chromatogram
+# TODO: Detect chromatogram peaks
+# TODO: Integrate chromatogram peaks
+# TODO: Find MS peaks
+# TODO: Add username and password protection for the database
 
 from pyteomics import mzxml # For reading in XMl data
 from pymongo import MongoClient # For connecting to MongoDB
